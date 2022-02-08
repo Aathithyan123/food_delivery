@@ -18,6 +18,7 @@ class IconsAndTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        //icons
         Icon(
           icon,
           color: iconColor,
