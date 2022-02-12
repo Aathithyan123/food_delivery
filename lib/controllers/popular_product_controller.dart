@@ -1,4 +1,5 @@
 import 'package:food_delivery/data/repository/popular_product_repo.dart';
+import 'package:food_delivery/models/products_model.dart';
 import 'package:get/get.dart';
 
 class PopularProductController extends GetxController {
@@ -11,10 +12,14 @@ class PopularProductController extends GetxController {
   Future<void> getPopularProductList() async {
     Response response = await popularProductRepo.getPopularProductList();
     if (response.statusCode == 200) {
+      print("got product");
       // most of the servers success status code 200
       _popularProductList = [];
-      // _popularProductList.addAll()
+
+      _popularProductList.addAll(Product.fromJson(response.body).products);
       update(); //if the data should updated the UI also should update like setstate
-    } else {}
+    } else {
+      print("failed product received ${response.status}");
+    }
   }
 }
