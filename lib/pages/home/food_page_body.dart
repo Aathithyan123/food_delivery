@@ -172,7 +172,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     BigText(
-                                        text: "Nutritious fruit meal in china"),
+                                        text: recommendedProduct
+                                            .recommendedProductList[index]
+                                            .name!),
                                     SizedBox(
                                       height: Dimensions.height10,
                                     ),
