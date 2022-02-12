@@ -4,9 +4,7 @@ import 'package:get/get.dart';
 class RouteHelper {
   static const String initial = "/";
 
-
-
   static List<GetPage> routes = [
-    GetPage(name: "/", page: ()=>MainFoodPage()),
+    GetPage(name: "/", page: () => MainFoodPage()),
   ];
 }
