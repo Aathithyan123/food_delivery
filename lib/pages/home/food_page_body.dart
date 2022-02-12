@@ -71,7 +71,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         GetBuilder<PopularProductController>(
           builder: (popularProduct) {
             return DotsIndicator(
-              dotsCount: popularProduct.popularProductList.length < 1
+              dotsCount: popularProduct.popularProductList.isEmpty
                   ? 1
                   : popularProduct.popularProductList.length,
               position: _currPageValue,
@@ -94,7 +94,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              BigText(text: "Popular"),
+              BigText(text: "Recommended"),
               SizedBox(
                 width: Dimensions.width10,
               ),
