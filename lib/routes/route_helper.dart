@@ -8,6 +8,6 @@ class RouteHelper {
 
   static List<GetPage> routes = [
     GetPage(name: "/", page: () => MainFoodPage()),
-    GetPage(name: "/popular-food", page: () => PopularFoodDetails()),
+    GetPage(name: popularFood, page: () => PopularFoodDetails()),
   ];
 }
