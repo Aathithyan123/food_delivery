@@ -62,7 +62,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       },
                     ),
                   )
-                : Container();
+                : CircularProgressIndicator(
+                    color: AppColors.mainColor,
+                  );
           },
         ),
         //dots
