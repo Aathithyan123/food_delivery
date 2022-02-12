@@ -9,6 +9,9 @@ class PopularProductController extends GetxController {
   List<dynamic> get popularProductList =>
       _popularProductList; // for access the _popularProductList anywhere in this app
 
+  bool _isLoaded = false;
+  bool get isLoaded => _isLoaded;
+
   Future<void> getPopularProductList() async {
     Response response = await popularProductRepo.getPopularProductList();
     if (response.statusCode == 200) {
@@ -17,6 +20,7 @@ class PopularProductController extends GetxController {
       _popularProductList = [];
 
       _popularProductList.addAll(Product.fromJson(response.body).products);
+      _isLoaded = true;
       update(); //if the data should updated the UI also should update like setstate
     } else {
       print("failed product received ${response.status}");

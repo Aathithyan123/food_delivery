@@ -48,19 +48,21 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         //slider section
         GetBuilder<PopularProductController>(
           builder: (popularProducts) {
-            return Container(
-              height: Dimensions.pageView,
-              child: PageView.builder(
-                itemCount: popularProducts.popularProductList.isEmpty
-                    ? 1
-                    : popularProducts.popularProductList.length,
-                controller: pageController,
-                itemBuilder: (context, position) {
-                  return _buildPageItem(
-                      position, popularProducts.popularProductList[position]);
-                },
-              ),
-            );
+            return popularProducts.isLoaded
+                ? Container(
+                    height: Dimensions.pageView,
+                    child: PageView.builder(
+                      itemCount: popularProducts.popularProductList.isEmpty
+                          ? 1
+                          : popularProducts.popularProductList.length,
+                      controller: pageController,
+                      itemBuilder: (context, position) {
+                        return _buildPageItem(position,
+                            popularProducts.popularProductList[position]);
+                      },
+                    ),
+                  )
+                : Container();
           },
         ),
         //dots
