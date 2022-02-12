@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/controllers/popular_product_controller.dart';
 import 'package:food_delivery/controllers/recommended_product_controller.dart';
 import 'package:food_delivery/models/products_model.dart';
+import 'package:food_delivery/utils/app_constants.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/app_column.dart';
@@ -122,7 +123,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ? ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: recommendedProduct.recommendedProductList.isEmpty
+                      ? 1
+                      : recommendedProduct.recommendedProductList.length,
                   itemBuilder: (context, index) {
                     return Container(
                       margin: EdgeInsets.only(
@@ -141,7 +144,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               color: Colors.white38,
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage("assets/image/food0.png"),
+                                image: NetworkImage(AppConstants.BASE_URL +
+                                    "/uploads/" +
+                                    recommendedProduct
+                                        .recommendedProductList[index].img!),
                               ),
                             ),
                           ),
