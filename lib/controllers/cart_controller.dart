@@ -12,9 +12,12 @@ class CartController extends GetxController {
   Map<int, CartModel> _items = {};
 
   void addItem(ProductModel product, int quantity) {
-    print("length of the item is ${_items.length}");
+    // print("length of the item is ${_items.length}");
     _items.putIfAbsent(product.id!, () {
       print("adding item to the cart id ${product.id} quantity ${quantity}");
+      _items.forEach((key, value) {
+        print("quantity is " + value.quantity.toString());
+      });
       return CartModel(
         id: product.id!,
         name: product.name!,
