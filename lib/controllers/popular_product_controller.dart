@@ -12,6 +12,9 @@ class PopularProductController extends GetxController {
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
 
+  int _quantity = 0;
+  int get quantity => _quantity;
+
   Future<void> getPopularProductList() async {
     Response response = await popularProductRepo.getPopularProductList();
     if (response.statusCode == 200) {
@@ -24,6 +27,14 @@ class PopularProductController extends GetxController {
       update(); //if the data should updated the UI also should update like setstate
     } else {
       print("failed product received ${response.status}");
+    }
+  }
+
+  void setQuantity(bool isIncrement) {
+    if (isIncrement) {
+      _quantity++;
+    } else {
+      _quantity--;
     }
   }
 }
