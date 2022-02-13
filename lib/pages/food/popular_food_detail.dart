@@ -152,7 +152,7 @@ class PopularFoodDetails extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(Dimensions.radius20),
               child: BigText(
-                text: "\$10 | Add to cart",
+                text: "\$${product.price} | Add to cart",
                 color: Colors.white,
               ),
               decoration: BoxDecoration(
