@@ -57,7 +57,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     height: Dimensions.pageView,
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(RouteHelper.getPopularFood());
+                        Get.toNamed(RouteHelper.getPopularFood());
                       },
                       child: PageView.builder(
                         itemCount: popularProducts.popularProductList.isEmpty
