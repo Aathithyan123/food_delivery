@@ -13,8 +13,8 @@ import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
 
 class PopularFoodDetails extends StatelessWidget {
-  int pageId;
-  PopularFoodDetails({Key? key, required this.pageId}) : super(key: key);
+  final int pageId;
+  const PopularFoodDetails({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

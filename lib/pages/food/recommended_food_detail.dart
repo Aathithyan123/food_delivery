@@ -11,8 +11,9 @@ import 'package:food_delivery/widgets/small_text.dart';
 import 'package:get/get.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-  int pageId;
-  RecommendedFoodDetail({Key? key, required this.pageId}) : super(key: key);
+  final int pageId;
+  const RecommendedFoodDetail({Key? key, required this.pageId})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
