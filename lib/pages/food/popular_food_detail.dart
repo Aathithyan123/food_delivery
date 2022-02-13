@@ -133,9 +133,14 @@ class PopularFoodDetails extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      Icon(
-                        Icons.remove,
-                        color: AppColors.signColor,
+                      GestureDetector(
+                        onTap: () {
+                          popularProduct.setQuantity(false);
+                        },
+                        child: Icon(
+                          Icons.remove,
+                          color: AppColors.signColor,
+                        ),
                       ),
                       SizedBox(
                         width: Dimensions.width10 / 2,

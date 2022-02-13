@@ -34,7 +34,7 @@ class PopularProductController extends GetxController {
     if (isIncrement) {
       _quantity++;
     } else {
-      _quantity--;
+      _quantity < 1 ? _quantity = 0 : _quantity--;
     }
     update();
   }
