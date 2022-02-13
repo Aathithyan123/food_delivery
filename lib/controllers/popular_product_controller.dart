@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/controllers/cart_controller.dart';
 import 'package:food_delivery/data/repository/popular_product_repo.dart';
 import 'package:food_delivery/models/products_model.dart';
 import 'package:food_delivery/utils/colors.dart';
@@ -10,6 +11,7 @@ class PopularProductController extends GetxController {
   List<dynamic> _popularProductList = [];
   List<dynamic> get popularProductList =>
       _popularProductList; // for access the _popularProductList anywhere in this app
+  late CartController _cart;
 
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
@@ -17,19 +19,20 @@ class PopularProductController extends GetxController {
   int _quantity = 0;
   int get quantity => _quantity;
 
+  int _inCartItems = 0;
+  int get inCartItems => _inCartItems + _quantity;
+
   Future<void> getPopularProductList() async {
     Response response = await popularProductRepo.getPopularProductList();
     if (response.statusCode == 200) {
-      print("got product");
       // most of the servers success status code 200
-      _popularProductList = [];
 
+      _popularProductList = [];
       _popularProductList.addAll(Product.fromJson(response.body).products);
+
       _isLoaded = true;
       update(); //if the data should updated the UI also should update like setstate
-    } else {
-      print("failed product received ${response.status}");
-    }
+    } else {}
   }
 
   void setQuantity(bool isIncrement) {
@@ -55,7 +58,15 @@ class PopularProductController extends GetxController {
     }
   }
 
-  void initProduct() {
+  void initProduct(CartController cart) {
     _quantity = 0;
+    _inCartItems = 0;
+    _cart = cart;
+    //if exist
+    //get from storage _inCartItems
+  }
+
+  void addItem(ProductModel product) {
+    _cart.addItem(product, _quantity);
   }
 }
