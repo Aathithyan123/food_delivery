@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:food_delivery/data/repository/popular_product_repo.dart';
 import 'package:food_delivery/models/products_model.dart';
+import 'package:food_delivery/utils/colors.dart';
 import 'package:get/get.dart';
 
 class PopularProductController extends GetxController {
@@ -41,8 +43,12 @@ class PopularProductController extends GetxController {
 
   int checkQuantity(int quantity) {
     if (quantity < 0) {
+      Get.snackbar("Item count", "You can't reduce more !",
+          backgroundColor: AppColors.mainColor, colorText: Colors.white);
       return 0;
     } else if (quantity > 20) {
+      Get.snackbar("Item count", "You can't add more !",
+          backgroundColor: AppColors.mainColor, colorText: Colors.white);
       return 20;
     } else {
       return quantity;
