@@ -76,6 +76,7 @@ class PopularProductController extends GetxController {
             " The quantity is " +
             value.quantity.toString());
       });
+      update();
     } else {
       Get.snackbar("Item count", "You should at least add one item in cart !",
           backgroundColor: AppColors.mainColor, colorText: Colors.white);
