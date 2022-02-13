@@ -33,9 +33,9 @@ class PopularProductController extends GetxController {
   void setQuantity(bool isIncrement) {
     if (isIncrement) {
       _quantity++;
-      print("cart value $_quantity");
     } else {
       _quantity--;
     }
+    update();
   }
 }

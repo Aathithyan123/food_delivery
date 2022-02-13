@@ -140,13 +140,13 @@ class PopularFoodDetails extends StatelessWidget {
                       SizedBox(
                         width: Dimensions.width10 / 2,
                       ),
-                      BigText(text: "0"),
+                      BigText(text: popularProduct.quantity.toString()),
                       SizedBox(
                         width: Dimensions.width10 / 2,
                       ),
                       GestureDetector(
                         onTap: () {
-                          popularProduct.setQuantity(true)
+                          popularProduct.setQuantity(true);
                         },
                         child: Icon(
                           Icons.add,
