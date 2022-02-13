@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/controllers/recommended_product_controller.dart';
 import 'package:food_delivery/routes/route_helper.dart';
+import 'package:food_delivery/utils/app_constants.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/app_icon.dart';
@@ -9,10 +11,13 @@ import 'package:food_delivery/widgets/small_text.dart';
 import 'package:get/get.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-  const RecommendedFoodDetail({Key? key}) : super(key: key);
+  int pageId;
+  RecommendedFoodDetail({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product =
+        Get.find<RecommendedProductController>().recommendedProductList[pageId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -36,7 +41,7 @@ class RecommendedFoodDetail extends StatelessWidget {
               child: Container(
                 child: Center(
                     child: BigText(
-                  text: "Chinese Side",
+                  text: product.name,
                   size: Dimensions.font26,
                 )),
                 width: double.maxFinite,
@@ -55,7 +60,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/image/food0.png",
+                AppConstants.BASE_URL + AppConstants.UPLOAD_URL + product.img!,
                 width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
@@ -66,8 +71,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             children: [
               Container(
                 child: ExpandableTextWidget(
-                  text:
-                      "How to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. If you are looking to make biryani in your lunch and dinner then watch step by step recipe direction to prepare biryani. Here I am sharing an easy and simple method that will help you to make perfect biryani to share with your family and friends so if you are a beginner or bachelor looking to make tasty biryani then follow the recipe instruction and watch recipe video to note each and every step.How to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. If you are looking to make biryani in your lunch and dinner then watch step by step recipe direction to prepare biryani. Here I am sharing an easy and simple method that will help you to make perfect biryani to share with your family and friends so if you are a beginner or bachelor looking to make tasty biryani then follow the recipe instruction and watch recipe video to note each and eHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. If you are looking to make biryani in your lunch and dinner then watch step by step recipe direction to prepare biryani. Here I am sharing an easy and simple method that will help you to make perfect biryani to share with your family and friends so if you are a beginner or bachelor looking to make tasty biryani then follow the recipe instruction and watch recipe video to note each and every step.How to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, every step.very step.",
+                  text: product.description,
                 ),
                 margin: EdgeInsets.only(
                     left: Dimensions.width20, right: Dimensions.width20),
@@ -96,7 +100,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   iconSize: Dimensions.iconsSize24,
                 ),
                 BigText(
-                  text: " \$12.88 " + " X " + " 0 ",
+                  text: " \$${product.price} " + " X " + " 0 ",
                   color: AppColors.mainBlackColor,
                   size: Dimensions.font26,
                 ),
@@ -143,7 +147,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(Dimensions.radius20),
                   child: BigText(
-                    text: "\$10 | Add to cart",
+                    text: "\$${product.price} | Add to cart",
                     color: Colors.white,
                   ),
                   decoration: BoxDecoration(
