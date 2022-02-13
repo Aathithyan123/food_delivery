@@ -20,8 +20,8 @@ class PopularFoodDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     var product =
         Get.find<PopularProductController>().popularProductList[pageId];
-    print("page is id" + pageId.toString());
-    print("page is id" + product.name);
+    // print("page is id" + pageId.toString());
+    // print("page is id" + product.name);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -82,7 +82,7 @@ class PopularFoodDetails extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AppColumn(
-                    text: "Chinese Side",
+                    text: product.name,
                   ),
                   SizedBox(
                     height: Dimensions.height20,
@@ -93,9 +93,7 @@ class PopularFoodDetails extends StatelessWidget {
                   ),
                   Expanded(
                     child: SingleChildScrollView(
-                      child: ExpandableTextWidget(
-                          text:
-                              "How to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. IfHow to Make Biryani at Home Step by Step | Hinz Cooking - In rice recipes, Biryani is one of the most popular recipe in India, Pakistan and Bangladesh. If you are looking to make biryani in your lunch and dinner then watch step by step recipe direction to prepare biryani. Here I am sharing an easy and simple method that will help you to make perfect biryani to share with your family and friends so if you are a beginner or bachelor looking to make tasty biryani then follow the recipe instruction and watch recipe video to note each and every step."),
+                      child: ExpandableTextWidget(text: product.description),
                     ),
                   )
                 ],
