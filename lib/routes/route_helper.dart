@@ -6,10 +6,15 @@ class RouteHelper {
   static const String initial = "/";
   static const String popularFood = "/popular-food";
 
+  static String getInitial() => '$initial';
+
   static String getPopularFood() => '$popularFood';
 
   static List<GetPage> routes = [
-    GetPage(name: "/", page: () => MainFoodPage()),
+    GetPage(
+      name: initial,
+      page: () => MainFoodPage(),
+    ),
     GetPage(
         name: popularFood,
         page: () {
