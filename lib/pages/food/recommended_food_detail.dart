@@ -11,6 +11,8 @@ import 'package:food_delivery/widgets/expandable_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/cart_controller.dart';
+
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
 
@@ -21,6 +23,8 @@ class RecommendedFoodDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     var product =
         Get.find<RecommendedProductController>().recommendedProductList[pageId];
+    Get.find<PopularProductController>()
+        .initProduct(product, Get.find<CartController>());
     return Scaffold(
         backgroundColor: Colors.white,
         body: CustomScrollView(
