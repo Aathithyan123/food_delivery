@@ -105,11 +105,16 @@ class RecommendedFoodDetail extends StatelessWidget {
                   color: AppColors.mainBlackColor,
                   size: Dimensions.font26,
                 ),
-                AppIcon(
-                  icon: Icons.add,
-                  backgroundColor: AppColors.mainColor,
-                  iconColor: Colors.white,
-                  iconSize: Dimensions.iconsSize24,
+                GestureDetector(
+                  onTap: () {
+                    print("I am tapped");
+                  },
+                  child: AppIcon(
+                    icon: Icons.add,
+                    backgroundColor: AppColors.mainColor,
+                    iconColor: Colors.white,
+                    iconSize: Dimensions.iconsSize24,
+                  ),
                 ),
               ],
             ),
