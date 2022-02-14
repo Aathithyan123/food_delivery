@@ -69,25 +69,40 @@ class PopularFoodDetails extends StatelessWidget {
                           ? Positioned(
                               right: 0,
                               top: 0,
-                              child: AppIcon(
-                                icon: Icons.circle,
-                                size: 20,
-                                iconColor: Colors.transparent,
-                                backgroundColor: AppColors.mainColor,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: AppColors.mainColor,
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: BigText(
+                                  text: controller.totalItems.toString(),
+                                  size: 12,
+                                ),
                               ),
                             )
                           : Container(),
-                      controller.totalItems > 0
-                          ? Positioned(
-                              right: 3,
-                              top: 3,
-                              child: BigText(
-                                text: controller.totalItems.toString(),
-                                size: 12,
-                                color: Colors.white,
-                              ),
-                            )
-                          : Container()
+                      // controller.totalItems > 0
+                      //     ? Positioned(
+                      //         right: 0,
+                      //         top: 0,
+                      //         child: AppIcon(
+                      //           icon: Icons.circle,
+                      //           size: 20,
+                      //           iconColor: Colors.transparent,
+                      //           backgroundColor: AppColors.mainColor,
+                      //         ),
+                      //       )
+                      //     : Container(),
+                      // controller.totalItems > 0
+                      //     ? Positioned(
+                      //         right: 3,
+                      //         top: 3,
+                      //         child: BigText(
+                      //           text: controller.totalItems.toString(),
+                      //           size: 12,
+                      //           color: Colors.white,
+                      //         ),
+                      //       )
+                      //     : Container()
                     ],
                   );
                 })),
