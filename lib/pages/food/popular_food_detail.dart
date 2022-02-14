@@ -58,7 +58,23 @@ class PopularFoodDetails extends StatelessWidget {
                   onTap: () => Get.to(MainFoodPage()),
                   child: AppIcon(icon: Icons.arrow_back_ios),
                 ),
-                AppIcon(icon: Icons.shopping_cart_outlined),
+                GetBuilder<PopularProductController>(builder: ((controller) {
+                  return Stack(
+                    children: [
+                      AppIcon(
+                        icon: Icons.shopping_cart_outlined,
+                      ),
+                      controller.totalItems > 0
+                          ? AppIcon(
+                              icon: Icons.circle,
+                              size: 20,
+                              iconColor: Colors.transparent,
+                              backgroundColor: AppColors.mainColor,
+                            )
+                          : Container()
+                    ],
+                  );
+                })),
               ],
             ),
           ),
