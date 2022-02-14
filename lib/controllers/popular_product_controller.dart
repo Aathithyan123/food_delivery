@@ -41,7 +41,7 @@ class PopularProductController extends GetxController {
     } else {
       _quantity = checkQuantity(_quantity - 1);
     }
-    // update();
+    update();
   }
 
   int checkQuantity(int quantity) {
@@ -83,7 +83,7 @@ class PopularProductController extends GetxController {
             " The quantity is " +
             value.quantity.toString());
       });
-      update();
+      // update();
     } else {
       Get.snackbar("Item count", "You should at least add one item in cart !",
           backgroundColor: AppColors.mainColor, colorText: Colors.white);
