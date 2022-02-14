@@ -40,4 +40,11 @@ class CartController extends GetxController {
       });
     }
   }
+
+  bool existInCart(ProductModel productModel) {
+    if (_items.containsKey(productModel.id)) {
+      return true;
+    }
+    return false;
+  }
 }
