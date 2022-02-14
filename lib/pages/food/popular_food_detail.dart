@@ -15,6 +15,7 @@ import '../../widgets/big_text.dart';
 
 class PopularFoodDetails extends StatelessWidget {
   final int pageId;
+
   const PopularFoodDetails({Key? key, required this.pageId}) : super(key: key);
 
   @override
@@ -65,11 +66,26 @@ class PopularFoodDetails extends StatelessWidget {
                         icon: Icons.shopping_cart_outlined,
                       ),
                       controller.totalItems > 0
-                          ? AppIcon(
-                              icon: Icons.circle,
-                              size: 20,
-                              iconColor: Colors.transparent,
-                              backgroundColor: AppColors.mainColor,
+                          ? Positioned(
+                              right: 0,
+                              top: 0,
+                              child: AppIcon(
+                                icon: Icons.circle,
+                                size: 20,
+                                iconColor: Colors.transparent,
+                                backgroundColor: AppColors.mainColor,
+                              ),
+                            )
+                          : Container(),
+                      controller.totalItems > 0
+                          ? Positioned(
+                              right: 3,
+                              top: 3,
+                              child: BigText(
+                                text: controller.totalItems.toString(),
+                                size: 12,
+                                color: Colors.white,
+                              ),
                             )
                           : Container()
                     ],
