@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
+
   const RecommendedFoodDetail({Key? key, required this.pageId})
       : super(key: key);
 
@@ -112,7 +113,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                       ),
                       BigText(
                         text:
-                            " \$${product.price * controller.quantity}  X  ${controller.quantity} ",
+                            " \$${product.price}  X  ${controller.inCartItems} ",
                         color: AppColors.mainBlackColor,
                         size: Dimensions.font26,
                       ),
@@ -162,16 +163,21 @@ class RecommendedFoodDetail extends StatelessWidget {
                             Icons.favorite,
                             color: AppColors.mainColor,
                           )),
-                      Container(
-                        padding: EdgeInsets.all(Dimensions.radius20),
-                        child: BigText(
-                          text: "\$${product.price} | Add to cart",
-                          color: Colors.white,
+                      GestureDetector(
+                        onTap: () {
+                          controller.addItem(product);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(Dimensions.radius20),
+                          child: BigText(
+                            text: "\$${product.price!} | Add to cart",
+                            color: Colors.white,
+                          ),
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.circular(Dimensions.radius20),
+                              color: AppColors.mainColor),
                         ),
-                        decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.circular(Dimensions.radius20),
-                            color: AppColors.mainColor),
                       )
                     ],
                   ),
