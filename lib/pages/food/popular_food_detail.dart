@@ -70,12 +70,14 @@ class PopularFoodDetails extends StatelessWidget {
                               right: 0,
                               top: 0,
                               child: Container(
+                                padding: EdgeInsets.all(3),
                                 decoration: BoxDecoration(
                                     color: AppColors.mainColor,
                                     borderRadius: BorderRadius.circular(20)),
                                 child: BigText(
                                   text: controller.totalItems.toString(),
                                   size: 12,
+                                  color: Colors.white,
                                 ),
                               ),
                             )
