@@ -17,13 +17,29 @@ class CartPage extends StatelessWidget {
               left: Dimensions.width20,
               right: Dimensions.width20,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AppIcon(
                     icon: Icons.arrow_back_ios,
                     iconColor: Colors.white,
                     backgroundColor: AppColors.mainColor,
                     iconSize: Dimensions.iconsSize24,
-                  )
+                  ),
+                  SizedBox(
+                    width: Dimensions.width20 * 5,
+                  ),
+                  AppIcon(
+                    icon: Icons.home_outlined,
+                    iconColor: Colors.white,
+                    backgroundColor: AppColors.mainColor,
+                    iconSize: Dimensions.iconsSize24,
+                  ),
+                  AppIcon(
+                    icon: Icons.shopping_cart,
+                    iconColor: Colors.white,
+                    backgroundColor: AppColors.mainColor,
+                    iconSize: Dimensions.iconsSize24,
+                  ),
                 ],
               )),
         ],
