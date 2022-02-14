@@ -24,8 +24,6 @@ class PopularFoodDetails extends StatelessWidget {
         Get.find<PopularProductController>().popularProductList[pageId];
     Get.find<PopularProductController>()
         .initProduct(product, Get.find<CartController>());
-    // print("page is id" + pageId.toString());
-    // print("page is id" + product.name);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
