@@ -99,14 +99,20 @@ class RecommendedFoodDetail extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AppIcon(
-                        icon: Icons.remove,
-                        backgroundColor: AppColors.mainColor,
-                        iconColor: Colors.white,
-                        iconSize: Dimensions.iconsSize24,
+                      GestureDetector(
+                        onTap: () {
+                          controller.setQuantity(false);
+                        },
+                        child: AppIcon(
+                          icon: Icons.remove,
+                          backgroundColor: AppColors.mainColor,
+                          iconColor: Colors.white,
+                          iconSize: Dimensions.iconsSize24,
+                        ),
                       ),
                       BigText(
-                        text: " \$${product.price}  X  0 ",
+                        text:
+                            " \$${product.price * controller.quantity}  X  ${controller.quantity} ",
                         color: AppColors.mainBlackColor,
                         size: Dimensions.font26,
                       ),
