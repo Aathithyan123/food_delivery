@@ -41,7 +41,7 @@ class PopularProductController extends GetxController {
     } else {
       _quantity = checkQuantity(_quantity - 1);
     }
-    update();
+    // update();
   }
 
   int checkQuantity(int quantity) {
