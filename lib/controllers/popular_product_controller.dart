@@ -33,8 +33,13 @@ class PopularProductController extends GetxController {
       _popularProductList.addAll(Product.fromJson(response.body).products);
 
       _isLoaded = true;
+      print(
+          "Api response success [ status code = ${response.statusCode} error = ${response.statusCode} ]");
       update(); //if the data should updated the UI also should update like setstate
-    } else {}
+    } else {
+      print(
+          "Api response error [ status code = ${response.statusCode} error = ${response.statusCode} ]");
+    }
   }
 
   void setQuantity(bool isIncrement) {
