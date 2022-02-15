@@ -53,10 +53,25 @@ class CartPage extends StatelessWidget {
                   itemCount: 10,
                   itemBuilder: (_, index) {
                     return Container(
-                      height: 100,
-                      width: 200,
-                      color: Colors.blue,
-                      margin: EdgeInsets.only(bottom: 10),
+                      height: Dimensions.height20 * 5,
+                      width: double.maxFinite,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: Dimensions.height20 * 5,
+                            height: Dimensions.height20 * 5,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(
+                                      "assets/image/food9.png",
+                                    )),
+                                borderRadius:
+                                    BorderRadius.circular(Dimensions.radius20),
+                                color: Colors.white),
+                          )
+                        ],
+                      ),
                     );
                   }),
             ),
