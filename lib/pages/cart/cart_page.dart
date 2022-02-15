@@ -111,6 +111,8 @@ class CartPage extends StatelessWidget {
                                       ),
                                       SmallText(text: "Spicy"),
                                       Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           BigText(
                                             text:
@@ -129,9 +131,6 @@ class CartPage extends StatelessWidget {
                                               color: Colors.white,
                                             ),
                                             child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
                                               children: [
                                                 GestureDetector(
                                                   onTap: () {
