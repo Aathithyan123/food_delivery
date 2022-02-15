@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/controllers/cart_controller.dart';
+import 'package:food_delivery/utils/app_constants.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/app_icon.dart';
@@ -76,8 +77,11 @@ class CartPage extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                           fit: BoxFit.cover,
-                                          image: AssetImage(
-                                            "assets/image/food0.png",
+                                          image: NetworkImage(
+                                            AppConstants.BASE_URL +
+                                                AppConstants.UPLOAD_URL +
+                                                cartController
+                                                    .getItems[index].img!,
                                           )),
                                       borderRadius: BorderRadius.circular(
                                           Dimensions.radius20),
