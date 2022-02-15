@@ -48,32 +48,39 @@ class CartPage extends StatelessWidget {
             right: Dimensions.width20,
             bottom: 0,
             child: Container(
+              margin: EdgeInsets.only(top: Dimensions.height15),
               color: Colors.red,
-              child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (_, index) {
-                    return Container(
-                      height: Dimensions.height20 * 5,
-                      width: double.maxFinite,
-                      child: Row(
-                        children: [
-                          Container(
-                            width: Dimensions.height20 * 5,
-                            height: Dimensions.height20 * 5,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                      "assets/image/food9.png",
-                                    )),
-                                borderRadius:
-                                    BorderRadius.circular(Dimensions.radius20),
-                                color: Colors.white),
-                          )
-                        ],
-                      ),
-                    );
-                  }),
+              child: MediaQuery.removePadding(
+                context: context,
+                removeTop: true,
+                child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (_, index) {
+                      return Container(
+                        height: Dimensions.height20 * 5,
+                        width: double.maxFinite,
+                        child: Row(
+                          children: [
+                            Container(
+                              width: Dimensions.height20 * 5,
+                              height: Dimensions.height20 * 5,
+                              margin:
+                                  EdgeInsets.only(bottom: Dimensions.height10),
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(
+                                        "assets/image/food0.png",
+                                      )),
+                                  borderRadius: BorderRadius.circular(
+                                      Dimensions.radius20),
+                                  color: Colors.white),
+                            )
+                          ],
+                        ),
+                      );
+                    }),
+              ),
             ),
           )
         ],
