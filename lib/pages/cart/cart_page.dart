@@ -73,7 +73,6 @@ class CartPage extends StatelessWidget {
                             height: Dimensions.height20 * 5,
                             width: double.maxFinite,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
                                   width: Dimensions.height20 * 5,
@@ -130,6 +129,9 @@ class CartPage extends StatelessWidget {
                                               color: Colors.white,
                                             ),
                                             child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 GestureDetector(
                                                   onTap: () {
