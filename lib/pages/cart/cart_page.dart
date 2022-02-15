@@ -49,6 +49,16 @@ class CartPage extends StatelessWidget {
             bottom: 0,
             child: Container(
               color: Colors.red,
+              child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (_, index) {
+                    return Container(
+                      height: 100,
+                      width: 200,
+                      color: Colors.blue,
+                      margin: EdgeInsets.only(bottom: 10),
+                    );
+                  }),
             ),
           )
         ],
