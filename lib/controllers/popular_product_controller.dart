@@ -34,11 +34,11 @@ class PopularProductController extends GetxController {
 
       _isLoaded = true;
       print(
-          "Api response success [ status code = ${response.statusCode} error = ${response.statusCode} ]");
+          "Api response success [ status code = ${response.statusCode} data 1 = ${response.body} ]");
       update(); //if the data should updated the UI also should update like setstate
     } else {
       print(
-          "Api response error [ status code = ${response.statusCode} error = ${response.statusCode} ]");
+          "Api response error [ status code = ${response.statusCode} data 1 = ${response.body} ]");
     }
   }
 
