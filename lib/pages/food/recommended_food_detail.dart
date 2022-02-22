@@ -43,57 +43,59 @@ class RecommendedFoodDetail extends StatelessWidget {
                       child: AppIcon(icon: Icons.clear)),
                   // AppIcon(icon: Icons.shopping_cart_outlined),
                   GetBuilder<PopularProductController>(builder: ((controller) {
-                    return Stack(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(CartPage());
-                          },
-                          child: AppIcon(
+                    return GestureDetector(
+                      onTap: () {
+                        if (controller.totalItems > 0)
+                          Get.toNamed(RouteHelper.getCartPage());
+                      },
+                      child: Stack(
+                        children: [
+                          AppIcon(
                             icon: Icons.shopping_cart_outlined,
                           ),
-                        ),
-                        controller.totalItems > 0
-                            ? Positioned(
-                                right: 0,
-                                top: 0,
-                                child: Container(
-                                  padding: EdgeInsets.all(3),
-                                  decoration: BoxDecoration(
-                                      color: AppColors.mainColor,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  child: BigText(
-                                    text: controller.totalItems.toString(),
-                                    size: 12,
-                                    color: Colors.white,
+                          controller.totalItems > 0
+                              ? Positioned(
+                                  right: 0,
+                                  top: 0,
+                                  child: Container(
+                                    padding: EdgeInsets.all(3),
+                                    decoration: BoxDecoration(
+                                        color: AppColors.mainColor,
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    child: BigText(
+                                      text: controller.totalItems.toString(),
+                                      size: 12,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                              )
-                            : Container(),
-                        // controller.totalItems > 0
-                        //     ? Positioned(
-                        //         right: 0,
-                        //         top: 0,
-                        //         child: AppIcon(
-                        //           icon: Icons.circle,
-                        //           size: 20,
-                        //           iconColor: Colors.transparent,
-                        //           backgroundColor: AppColors.mainColor,
-                        //         ),
-                        //       )
-                        //     : Container(),
-                        // controller.totalItems > 0
-                        //     ? Positioned(
-                        //         right: 3,
-                        //         top: 3,
-                        //         child: BigText(
-                        //           text: controller.totalItems.toString(),
-                        //           size: 12,
-                        //           color: Colors.white,
-                        //         ),
-                        //       )
-                        //     : Container()
-                      ],
+                                )
+                              : Container(),
+                          // controller.totalItems > 0
+                          //     ? Positioned(
+                          //         right: 0,
+                          //         top: 0,
+                          //         child: AppIcon(
+                          //           icon: Icons.circle,
+                          //           size: 20,
+                          //           iconColor: Colors.transparent,
+                          //           backgroundColor: AppColors.mainColor,
+                          //         ),
+                          //       )
+                          //     : Container(),
+                          // controller.totalItems > 0
+                          //     ? Positioned(
+                          //         right: 3,
+                          //         top: 3,
+                          //         child: BigText(
+                          //           text: controller.totalItems.toString(),
+                          //           size: 12,
+                          //           color: Colors.white,
+                          //         ),
+                          //       )
+                          //     : Container()
+                        ],
+                      ),
                     );
                   })),
                 ],
